@@ -1,0 +1,44 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<div class="text-center">
+  <h1>Welcome!</h1>
+</div>
+
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <img src="https://c.tenor.com/1WtAgS78CB0AAAAd/duck-dance.gif" id="icon" alt="User Icon" />
+    </div>
+
+    <!-- Login Form -->
+    <form [formGroup]="form">
+      <input type="text" id="login" class="fadeIn second" name="login" placeholder="login" formControlName="login">
+      <input type="text" id="password" class="fadeIn third" name="login" placeholder="password" formControlName="password">
+      <input type="submit" class="fadeIn fourth" value="Log In" (click)="login()">
+    </form>
+
+    <!-- Error message (form is empty)-->
+    <div class="text-danger" *ngIf="isEmpty">
+      Form is empty!
+    </div>
+
+    <!-- Error message (wrong user data)-->
+    <div class="text-danger" *ngIf="this.authService.authorizationError">
+      Wrong login or password!
+    </div>
+
+    <!-- Bottom text -->
+    <div id="formFooter">
+      Try "user:55555" or "admin:12345"
+    </div>
+
+  </div>
+</div>
